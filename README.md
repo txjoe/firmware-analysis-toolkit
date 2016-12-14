@@ -62,6 +62,17 @@ vi fat.py
 ```
 Here, edit the [line number 9](https://github.com/attify/firmware-analysis-toolkit/blob/master/fat.py#L9) which is `firmadyne_path = '/root/tools/firmadyne'` to the correct path in your system.
 
+Next, set up a database for firmadyne
+
+```
+
+    sudo apt-get install postgresql
+    sudo -u postgres createuser -P firmadyne, with password firmadyne
+    sudo -u postgres createdb -O firmadyne firmware
+    sudo -u postgres psql -d firmware < ./firmadyne/database/schema
+
+```
+
 ### Setting up Firmware-mod-Kit 
 
 ```
